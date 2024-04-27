@@ -25,11 +25,11 @@ Pair * createPair( char * key,  void * value) {
 
 long hash( char * key, long capacity) {
     unsigned long hash = 0;
-     char * ptr;
+    char * ptr;
     for (ptr = key; *ptr != '\0'; ptr++) {
-        hash += hash*32 + tolower(*ptr);
-    }
-    return hash%capacity;
+        hash += hash*32 + tolower(*ptr); }
+
+    return hash % capacity;
 }
 
 int is_equal(void* key1, void* key2){
@@ -53,8 +53,7 @@ void enlarge(HashMap * map) {
 
 HashMap * createMap(long capacity) {
 	HashMap *map = (HashMap *)malloc(sizeof(HashMap));
-	if (map == NULL) {
-			return NULL; }
+	if (map == NULL) return NULL; 
 	map->current = -1;
 	return map;
 }
