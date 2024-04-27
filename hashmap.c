@@ -46,7 +46,7 @@ void insertMap(HashMap * map, char * key, void * value) {
 	
 	while (true) {
 		if (map->buckets[copiaIndice]->key == NULL){ //Si esta vacio
-		map->buckets[copiaIndice]->key = key; 
+			map->buckets[copiaIndice]->key = key; 
 		break; }
 			
 		else if(map->buckets[copiaIndice]->key != NULL){ //Si esta ocupado
@@ -55,11 +55,11 @@ void insertMap(HashMap * map, char * key, void * value) {
 	copiaIndice = indice;
 	
 	while (true) {
-		if (map->buckets[copiaIndice]->value == NULL){ //Si esta vacio
-		map->buckets[copiaIndice]->value = value; 
+		if (map->buckets[copiaIndice]->key == NULL){ //Si esta vacio
+			map->buckets[copiaIndice]->value = value; 
 		break; }
 
-		else if(map->buckets[copiaIndice]->value != NULL){ //Si esta ocupado
+		else if(map->buckets[copiaIndice]->key != NULL){ //Si esta ocupado
 			copiaIndice += 1; } }
 }
 
