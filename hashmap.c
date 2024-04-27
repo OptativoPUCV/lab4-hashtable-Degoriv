@@ -45,22 +45,13 @@ void insertMap(HashMap * map, char * key, void * value) {
 	long copiaIndice = indice;
 	
 	while (true) {
-		if (map->buckets[copiaIndice]->key == NULL){ //Si esta vacio
-			map->buckets[copiaIndice]->key = key; 
-		break; }
-			
-		else if(map->buckets[copiaIndice]->key != NULL){ //Si esta ocupado
-			copiaIndice += 1; } }
-
-	copiaIndice = indice;
-	
-	while (true) {
-		if (map->buckets[copiaIndice]->key == NULL){ //Si esta vacio
-			map->buckets[copiaIndice]->value = value; 
-		break; }
-
-		else if(map->buckets[copiaIndice]->key != NULL){ //Si esta ocupado
-			copiaIndice += 1; } }
+		if (map->buckets[copiaIndice]->key == NULL) {
+			map->buckets[copiaIndice] = createPair(key, value); 
+			map->size++; 
+			break; }
+		else { 
+			copiaIndice += 1; }
+	}
 }
 
 void enlarge(HashMap * map) {
