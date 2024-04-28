@@ -81,13 +81,16 @@ void eraseMap(HashMap * map,  char * key) {
 Pair * searchMap(HashMap * map,  char * key) {
 	long indice = hash(key, map->capacity);
 	Pair *pair = map->buckets[indice];
-	
-	if (pair != NULL && is_equal(pair->key, key)) {
-		map->current = indice;
-		return pair; }
-	else {
-		return NULL;
+	while (pair != NULL)
+	{
+		if (is_equal(pair->key, key)) {
+			map->current = indice;
+			return pair; }
+		else if (!is_equal(pair->key, key)) {
+			indice += 1; }
+		if (indice == map->capacity) break;
 	}
+	return NULL;
 }
 
 Pair * firstMap(HashMap * map) {
