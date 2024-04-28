@@ -82,7 +82,7 @@ Pair * searchMap(HashMap * map,  char * key) {
 	long indice = hash(key, map->capacity);
 	Pair *pair = map->buckets[indice];
 
-	if (pair != NULL && is_equal(pair->key, key)) {
+	if (pair != NULL && pair->key == key) {
 		return pair; } 
 	else {
 		return NULL;
