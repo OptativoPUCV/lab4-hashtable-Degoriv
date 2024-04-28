@@ -51,10 +51,8 @@ void insertMap(HashMap * map, char * key, void * value) {
 				break;}
 			else {
 				indice++;
-				if (indice == map->capacity) indice = 0;
-			}
+				if (indice == map->capacity) indice = 0; }
 		}
-	
 }
 
 void enlarge(HashMap * map) {
@@ -81,17 +79,16 @@ void eraseMap(HashMap * map,  char * key) {
 }
 
 Pair * searchMap(HashMap * map,  char * key) {   
-
-
-    return NULL;
+	long indice = hash(key, map->capacity);
+  return map->buckets[indice];
 }
 
 Pair * firstMap(HashMap * map) {
 
-    return NULL;
+  return NULL;
 }
 
 Pair * nextMap(HashMap * map) {
 
-    return NULL;
+  return NULL;
 }
