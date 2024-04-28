@@ -86,9 +86,13 @@ Pair * searchMap(HashMap * map,  char * key) {
 		if (is_equal(pair->key, key)) {
 			map->current = indice;
 			return pair; }
+			
 		else if (!is_equal(pair->key, key)) {
-			indice += 1; }
-		if (indice == map->capacity) break;
+			indice += 1; 
+			if (indice == map->capacity) indice = 0;}
+		  pair = map->buckets[indice];
+		
+		pair = map->buckets[indice];
 	}
 	return NULL;
 }
