@@ -77,12 +77,12 @@ void eraseMap(HashMap * map,  char * key) {
 	long indice = hash(key, map->capacity);
 	while (true)
 	{
-		if (is_equal(map->buckets[indice]->key, key)){
+		if (is_equal(map->buckets[indice]->key, key) == 1){
 			map->buckets[indice]->key = NULL;
 			map->size -= 1;
-			break; }
+			return; }
 		else {
-		indice += 1; }
+		indice = (indice + 1) % map->capacity; }
 	}
 }
 
