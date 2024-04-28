@@ -118,6 +118,10 @@ Pair * firstMap(HashMap * map) {
 }
 
 Pair * nextMap(HashMap * map) {
-
+	if (map == NULL) return NULL;
+	for (long i = map->current ; i < map->capacity ; i++)
+		{
+			if (map->buckets[map->current] != NULL) return map->buckets[map->current];
+		}
   return NULL;
 }
