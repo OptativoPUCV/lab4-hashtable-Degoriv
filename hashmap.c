@@ -110,6 +110,7 @@ Pair * firstMap(HashMap * map) {
 		{
 			if (map->buckets[i] != NULL) return map->buckets[i];
 		}
+	return NULL;
 }
 
 Pair * nextMap(HashMap * map) {
