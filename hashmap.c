@@ -58,19 +58,16 @@ void insertMap(HashMap * map, char * key, void * value) {
 void enlarge(HashMap * map) {
 	enlarge_called = 1; //no borrar (testing purposes)
 
-	Pair** valorAux = map->buckets;
+	Pair ** aux = map->buckets;
 	map->buckets = (Pair**) malloc(sizeof(Pair*) * (map->capacity * 2));
 	map->capacity *= 2;
 	map->size = 0;
 
 	for (int i = 0 ; i < map->capacity ; i++)
-		{
-			if (valorAux[i] != NULL)
-			{
-				insertMap(map, valorAux[i]->key, valorAux[i]->value);
-			}
-		}
-	free(valorAux);
+	{
+		if (aux[i] != NULL) insertMap(map, aux[i]->key, aux[i]->value);
+	}
+	free(aux);
 }
 
 
