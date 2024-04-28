@@ -83,7 +83,6 @@ void eraseMap(HashMap * map,  char * key) {
 			break; }
 		else {
 		indice += 1; }
-		if (indice == map->capacity) indice = 1;
 	}
 }
 
